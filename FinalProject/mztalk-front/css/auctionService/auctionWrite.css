@@ -1,0 +1,84 @@
+.container {
+    padding: 50px;
+}
+
+.writeInput {
+    width: 800px;
+    height: 40px;
+    outline: solid 3px burlywood;
+}
+
+.short {
+    width: 380px;
+    height: 40px;
+    outline: solid 3px burlywood;
+}
+
+
+Button {
+    background-color: burlywood;
+    border: none;
+    color: white;
+    padding: 7px 30px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input, textarea {
+    margin-top: 20px;
+    outline: solid 3px burlywood;
+}
+
+label {
+    font-size: 18px; font-weight: bold; 
+    text-decoration-line: underline;
+    text-decoration: underline burlywood dotted 3px; 
+}
+
+#inputPrice {
+    width: 310px;
+}
+
+.bookThumbnail:hover {
+    opacity: 1;
+	-webkit-animation: flash 3s;
+	animation: flash 3s;
+    cursor: pointer;
+}
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.bookTitle:hover {
+    font-size: 18px;
+    font-weight: bold;
+    color: burlywood;
+    cursor: pointer;
+}
+
+#closeNow {
+    float: right;
+    margin-top: 5px;
+    color: gray;
+}
+
+#closeNow:hover {
+    cursor: pointer;
+    color: lightgray;
+    text-decoration: underline;
+}
+

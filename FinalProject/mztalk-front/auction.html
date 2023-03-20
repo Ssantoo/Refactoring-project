@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link href="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/auctionService/auction.css">
+  <title>Main::Westagram</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <nav>
+    <div class="navContainer">
+      <article class="logoWrap">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" onclick="moveMainPage();" class="logoMain" alt="로고">
+        <div class="columnLine"></div>
+        <h1 class="logo" onclick="moveMainPage();">MZTALK</h1>
+      </article>
+      <!-- <article class="search">
+                <input type="text" placeholder="검색" >
+            </article> -->
+      <article class="pictogramWrap">
+        <img onclick="logouts();" src="https://cdn-icons-png.flaticon.com/512/1629/1629082.png">
+        <i id="move-chat-service" class="fa-solid fa-comments"></i>               
+        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png" alt="프로필" id="move-story-service" >
+      </article>
+    </div>
+  </nav>
+  <!-- 여기서 놀아주세요. -->
+  <main class="mainContainer">
+    <div class = "row">
+      <div class = "col-8">
+        <h1 id = "serviceTitle" style="margin-left: 20px;"><a href = "auction.html">AUCTION</a></h1>
+      </div>
+      <div class = "col-4">
+        <div class="form-check form-control-lg form-switch" style="float: right;">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked2" onclick="isClose();">
+          <label class="form-check-label" for="flexSwitchCheckChecked2" style="font-size: 15px; color: #503C22;">마감된 게시물 제외</label>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mb-4 m-4">
+      <button type="button" class="cssBtn" id="writeBoard">글쓰기</button>
+      <input type="text" id="searchBoard" name = "keyword">
+      <button type="button" class="cssBtn" id = "searchBtn">검색</button>
+    </div>
+
+   <!-- 메인 div -->
+    <div id="list-div">
+      <div class="row " id="auctionCard1"></div>
+  </div>
+
+     <!-- 마감 div -->
+  <div id="list-finish-div"><div class="row " id="auctionCard2"></div>
+
+  </div>
+
+     <!-- 검색 div -->
+  <div id="search-list-div"><div class="row " id="auctionCard3"></div>
+
+  </div>
+
+  </main>
+
+  <div class="floating">
+
+    <div id="advertis">
+      <div class="advertisement">
+        <img src="https://mztalk-resource-server.s3.ap-northeast-2.amazonaws.com/f9efae46-9f79-47ae-afb7-8b95ff4a34df-%EA%B4%91%EA%B3%A01.gif">
+      </div>
+      <div class="advertisement">
+        <img src="https://mztalk-resource-server.s3.ap-northeast-2.amazonaws.com/3e92d1e6-380a-4bf7-a69e-11edf534c640-%EA%B4%91%EA%B3%A02.jpg">
+      </div>
+  </div>
+
+    <div class="remocon">
+      <figure><img src="img/mento.png" style="width: 70px; margin-bottom: 25px; margin-top: 25px;"
+          id="move-mentor-service" /></figure>
+
+      <figure> <img src="img/qjd.png" style="width: 70px;" id="move-bung-service" /></figure>
+
+      <figure> <img src="img/book.png" style="width: 70px; margin-top:30px;" id="move-auction-service" /></figure>
+
+
+      <!-- <figure><i class="fa-solid fa-comments" style="width: 85px;"></i></figure> -->
+    </div>
+
+
+    <div class="side side1"></div>
+    <div class="side side2"></div>
+    <div class="side side3"></div>
+    <div class="side side4"></div>
+  </div>
+
+  <!-- <div id="upBtn">
+        <a href="#"><figure id="up-figure"><img src="img/top.png" style="width: 40px;"/></figure></a>
+    
+    </div>  -->
+
+  <div id="upBtn">
+    <a href="#">
+      <figure><img src="img/top.png" style="width: 50px;" /></figure>
+    </a>
+  </div>
+  <footer>
+    <div class="container">
+      <ul>
+        <li><a href="#a">소개</a></li>
+        <li><a href="#a">블로그</a></li>
+        <li><a href="#a">채용 정보</a></li>
+        <li><a href="#a">도움말</a></li>
+        <li><a href="#a">API</a></li>
+        <li><a href="#a">개인정보처리방침</a></li>
+        <li><a href="#a">약관</a></li>
+        <li><a href="#a">인기 계정</a></li>
+        <li><a href="#a">해시태그</a></li>
+        <li><a href="#a">위치</a></li>
+      </ul>
+      <div class="copy">
+        <p>© 2022 MZTALK from Spring</p>
+      </div>
+    </div>
+
+
+  </footer>
+
+  <!-- <div id="upBtn">
+    <ul class="menu align-center expanded text-center SMN_effect-74">
+        <li><a href="#" data-hover="Home" id="homeRef">UP</a></li>
+        </ul>
+        </div> -->
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+ <script src="JS/main.js"></script> 
+<script src="JS/auctionService/auction.js"></script>
+
+</html>
