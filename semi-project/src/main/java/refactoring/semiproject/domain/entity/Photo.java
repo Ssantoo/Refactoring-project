@@ -1,11 +1,14 @@
 package refactoring.semiproject.domain.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.*;
-import refactoring.semiproject.domain.Status;
+import refactoring.semiproject.domain.status.PhotoStatus;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -30,24 +33,28 @@ public class Photo extends BaseTimeEntity{
     private User user;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private PhotoStatus photoStatus;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "photo")
+    private List<Reply> replies = new ArrayList<>();
 
     @Builder
-    public Photo(Long id, String photoTitle, String photoContent, User user, Status status) {
+    public Photo(Long id, String photoTitle, String photoContent, User user, PhotoStatus status, List<Reply> replies) {
         this.id = id;
         this.photoTitle = photoTitle;
         this.photoContent = photoContent;
         this.user = user;
-        this.status = status;
+        this.photoStatus = status;
+        this.replies = replies;
     }
-
 
     //사진 상태 변경
-    public void changePhotoStatus(){
-        this.status = Status.NO;
+    public void changePhotoStatusNo(){
+        this.photoStatus = PhotoStatus.NO;
     }
 
-
+    
 
 
 

@@ -17,6 +17,7 @@ import javax.persistence.*;
 public class User {
 
     @Id @GeneratedValue
+    @Column(name = "user_id")
     private Long id;
 
     private String username;
@@ -26,4 +27,11 @@ public class User {
     private String nickName;
 
     private String email;
+
+
+
+
+
+
+
 }
