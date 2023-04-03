@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name="PHOTO")
+@Table(name="User")
 @Cacheable
 @ToString
 public class User {

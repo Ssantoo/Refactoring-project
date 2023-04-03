@@ -1,6 +1,7 @@
 package refactoring.semiproject.domain.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.*;
@@ -13,7 +14,7 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name="PHOTO")
+@Table(name="Photo")
 @Cacheable
 @ToString
 public class Photo extends BaseTimeEntity{
@@ -35,8 +36,9 @@ public class Photo extends BaseTimeEntity{
     @Enumerated(EnumType.STRING)
     private PhotoStatus photoStatus;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "photo")
+    @OneToMany(mappedBy = "photo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonBackReference
+    @OrderBy("id desc")
     private List<Reply> replies = new ArrayList<>();
 
     @Builder
@@ -49,12 +51,19 @@ public class Photo extends BaseTimeEntity{
         this.replies = replies;
     }
 
+    //댓글 추가
+    public void addReply(Reply reply){
+        this.replies.add(reply);
+        if(reply.getPhoto() != this)
+            reply.addPhoto(this);
+    }
+
     //사진 상태 변경
     public void changePhotoStatusNo(){
         this.photoStatus = PhotoStatus.NO;
     }
 
-    
+
 
 
 
